@@ -76,11 +76,11 @@
             </div>
           </div>
 
-          <messageform v-if="!pending "/>
+          <!-- <messageform v-if="!pending "/> -->
         </section>
 </template>
 
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { type Message } from 'openai/resources/beta/threads/messages.mjs';
 import messageform from './messageform.vue';
 
@@ -111,4 +111,4 @@ const { pending } = await useFetch("/api/message", {
     });
   },
 });
-</script>
+</script> -->
