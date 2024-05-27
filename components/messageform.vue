@@ -1,5 +1,5 @@
 <template>
-    <!-- <form @submit.prevent="handleSubmit" class="relative">
+    <form @submit.prevent="handleSubmit" class="relative">
         <fieldset :disabled="isSubmitting">
             <textarea
             v-model.trim="newMessage"
@@ -25,12 +25,12 @@
             </svg>
           </button>
         </fieldset>
-    </form> -->
+    </form>
 </template>
 
 <script setup lang="ts">
 import { marked } from "marked";
-import dompurify from "Dompurify";
+// import dompurify from "Dompurify";
 
 
 
@@ -67,7 +67,8 @@ async function handleSubmit() {
       }
 
       const parsedMessage = await marked.parse(
-        dompurify.sanitize(content.text.value)
+        // dompurify.sanitize(content.text.value)
+        content.text.value
       );
 
       messages.value.push({
