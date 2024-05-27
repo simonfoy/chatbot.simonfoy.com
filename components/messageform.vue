@@ -1,5 +1,5 @@
-<!-- <template>
-    <form @submit.prevent="handleSubmit" class="relative">
+<template>
+    <!-- <form @submit.prevent="handleSubmit" class="relative">
         <fieldset :disabled="isSubmitting">
             <textarea
             v-model.trim="newMessage"
@@ -25,10 +25,10 @@
             </svg>
           </button>
         </fieldset>
-    </form>
+    </form> -->
 </template>
 
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { marked } from "marked";
 import dompurify from "Dompurify";
 
