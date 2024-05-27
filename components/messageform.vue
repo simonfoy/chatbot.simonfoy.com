@@ -87,7 +87,7 @@ async function handleSubmit() {
             console.error("Error: Unexpected response format from server.");
             // Consider informing the user of an issue, but in a user-friendly way
         }
-    } else {
+      } else {
         // Handle the error gracefully
         console.error(`Error: Request failed with status ${response?.status || 'unknown'}`);
 
@@ -95,8 +95,19 @@ async function handleSubmit() {
             console.warn("Server returned a 502 Bad Gateway error. This is a server-side issue.");
         }
 
-        // Consider retrying the request, displaying a user-friendly error message, etc.
-        // ... (your retry logic or error handling)
+        // Display an error message to the user
+        const errorMessage = "There was an error retrieving a response from the server. Please try again later.";
+        
+        // Update your UI to display the errorMessage
+        // For example, you could push a new message to your messages.value array:
+        messages.value.push({
+            name: "System",
+            message: errorMessage,
+            isLearnSpigot: false, // Or however you differentiate system messages
+            timestamp: new Date().toLocaleString([], { timeStyle: "short" }),
+        });
+
+        // ... (optional: your retry logic)
     }
 
   isSubmitting.value = false;
