@@ -76,7 +76,7 @@
             </div>
           </div>
 
-          <!-- <messageform v-if="!pending "/> -->
+          <messageform v-if="!pending "/>
         </section>
 </template>
 
