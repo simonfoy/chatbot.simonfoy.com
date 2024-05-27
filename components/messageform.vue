@@ -59,26 +59,45 @@ async function handleSubmit() {
     query: {
       message: userMessage,
     },
-   async onResponse({ response }) {
-      const content = response._data.data[0].content[0];
+    async onResponse({ response }) {
+    if (response && response.status >= 200 && response.status < 300) {
+        // Response is successful, but ensure the data structure is expected
+        if (response._data && response._data.data && response._data.data.length > 0 
+            && response._data.data[0].content && response._data.data[0].content.length > 0) {
+            const content = response._data.data[0].content[0];
 
-      if (content.type != "text") {
-        return;
-      }
+            if (content.type !== "text") {
+                return;
+            }
 
-      const parsedMessage = await marked.parse(
-        // dompurify.sanitize(content.text.value)
-        content.text.value
-      );
+            // (Optional) Sanitize the content to prevent XSS vulnerabilities
+            // const sanitizedMessage = dompurify.sanitize(content.text.value);
 
-      messages.value.push({
-      name: "LearnSpigot ChatBot",
-      message: parsedMessage,
-      isLearnSpigot: true,
-      timestamp: new Date().toLocaleString([], {
-      timeStyle: "short",
-    }),
-  });
+            const parsedMessage = await marked.parse(content.text.value);
+
+            messages.value.push({
+                name: "LearnSpigot ChatBot",
+                message: parsedMessage,
+                isLearnSpigot: true,
+                timestamp: new Date().toLocaleString([], {
+                    timeStyle: "short",
+                }),
+            });
+        } else {
+            console.error("Error: Unexpected response format from server.");
+            // Consider informing the user of an issue, but in a user-friendly way
+        }
+    } else {
+        // Handle the error gracefully
+        console.error(`Error: Request failed with status ${response?.status || 'unknown'}`);
+
+        if (response?.status === 502) {
+            console.warn("Server returned a 502 Bad Gateway error. This is a server-side issue.");
+        }
+
+        // Consider retrying the request, displaying a user-friendly error message, etc.
+        // ... (your retry logic or error handling)
+    }
 
   isSubmitting.value = false;
 
