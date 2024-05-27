@@ -82,7 +82,7 @@
 
 <script setup lang="ts">
 import { type Message } from 'openai/resources/beta/threads/messages.mjs';
-// import messageform from './messageform.vue';
+import messageform from './messageform.vue';
 
 const messages = useMessages();
 const { customerInitials } = useCustomer();
