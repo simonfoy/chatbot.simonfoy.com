@@ -28,7 +28,7 @@
     </form> -->
 </template>
 
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import { marked } from "marked";
 import dompurify from "Dompurify";
 
@@ -85,4 +85,4 @@ async function handleSubmit() {
     },
   });
 }
-</script> -->
+</script>
