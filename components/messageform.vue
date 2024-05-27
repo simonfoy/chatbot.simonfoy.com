@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <form @submit.prevent="handleSubmit" class="relative">
         <fieldset :disabled="isSubmitting">
             <textarea
@@ -85,4 +85,4 @@ async function handleSubmit() {
     },
   });
 }
-</script>
+</script> -->
