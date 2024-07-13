@@ -51,7 +51,7 @@ async function handleSubmit() {
   errorMessage.value = '';
 
   try {
-    const response = await $fetch("/api/thread", {
+    // const response = await $fetch("/api/thread", {
       query: {
         customer: customerName.value, 
       },
