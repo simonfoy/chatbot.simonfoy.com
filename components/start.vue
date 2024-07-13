@@ -1,28 +1,3 @@
-<!-- <template>
-  <section class="bg-gray-800 rounded-2xl p-6 flex flex-col items-center gap-4">
-    <p v-if="errorMessage" class="text-red-500 text-sm">{{ errorMessage }}</p>
-  </section>
-</template>
-
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const isChatting = useIsChatting();
-const { customerName, hasNameError } = useCustomer();
-const thread = useCookie("thread-id");
-const run = useCookie("run-id");
-const isLoading = ref(false); 
-const errorMessage = ref('Blame Dawson for chat not working lel.'); // Preset error message
-
-async function handleSubmit() {
-  // Simulate loading, then display the error
-  isLoading.value = true;
-  setTimeout(() => {
-    isLoading.value = false;
-  }, 1000); // You can adjust the delay if needed
-}
-</script> -->
-
 <template>
   <section class="bg-gray-800 rounded-2xl p-6 flex flex-col items-center gap-4">
     <img src="/discordblue.png" class="w-64 h-64 rounded-full discord-profile-img" /> 
@@ -86,7 +61,7 @@ async function handleSubmit() {
     run.value = response.run;
     isChatting.value = true;
   } catch (error) {
-    errorMessage.value = "An error occurred while starting the chat. Blame Dawson.";
+    errorMessage.value = "An error occurred while starting the chat. Please try again.";
     console.error("Error starting chat:", error); // Log the error for debugging
   } finally {
     isLoading.value = false;
