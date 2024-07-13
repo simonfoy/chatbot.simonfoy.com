@@ -61,7 +61,7 @@ async function handleSubmit() {
     run.value = response.run;
     isChatting.value = true;
   } catch (error) {
-    errorMessage.value = "An error occurred while starting the chat. Please try again.";
+    errorMessage.value = "An error occurred while starting the chat. Blame Dawson.";
     console.error("Error starting chat:", error); // Log the error for debugging
   } finally {
     isLoading.value = false;

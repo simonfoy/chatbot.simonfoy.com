@@ -84,7 +84,7 @@ async function handleSubmit() {
                 }),
             });
         } else {
-            console.error("Server returned a 502 Bad Dawson error. This is likely a temporary issue.");
+            console.error("Error: Unexpected response format from server.");
             // Consider informing the user of an issue, but in a user-friendly way
         }
       } else {
@@ -92,11 +92,11 @@ async function handleSubmit() {
         console.error(`Error: Request failed with status ${response?.status || 'unknown'}`);
 
         if (response?.status === 502) {
-            console.warn("Server returned a 502 Bad Dawson error. This is likely a temporary issue.");
+            console.warn("Server returned a 502 Bad Gateway error. This is a server-side issue.");
         }
 
         // Display an error message to the user
-        const errorMessage = "Server returned a 502 Bad Dawson error. This is likely a temporary issue.";
+        const errorMessage = "There was an error retrieving a response from the server. Please try again later.";
         
         // Update your UI to display the errorMessage
         // For example, you could push a new message to your messages.value array:
