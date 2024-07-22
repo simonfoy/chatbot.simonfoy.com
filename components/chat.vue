@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <section class="flex flex-col min-w-[520px] w-full">
           <!-- Customer Support Agent -->
           <div class="flex items-center gap-3.5 pb-4 border-b border-dashed">
@@ -111,4 +111,4 @@ const { pending } = await useFetch("/api/message", {
     });
   },
 });
-</script> -->
+</script>
