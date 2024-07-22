@@ -117,3 +117,28 @@ async function handleSubmit() {
   });
 }
 </script>
+
+<!-- <template>
+  <section class="bg-gray-800 rounded-2xl p-6 flex flex-col items-center gap-4">
+    <p v-if="errorMessage" class="text-red-500 text-sm">{{ errorMessage }}</p>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const isChatting = useIsChatting();
+const { customerName, hasNameError } = useCustomer();
+const thread = useCookie("thread-id");
+const run = useCookie("run-id");
+const isLoading = ref(false); 
+const errorMessage = ref('Chat creation is temporarily disabled.'); // Preset error message
+
+async function handleSubmit() {
+  // Simulate loading, then display the error
+  isLoading.value = true;
+  setTimeout(() => {
+    isLoading.value = false;
+  }, 1000); // You can adjust the delay if needed
+}
+</script> -->
